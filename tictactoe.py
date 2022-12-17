@@ -117,7 +117,6 @@ if __name__ == "__main__":
                     print("Invalid move!")
             board = board.move(index)
             print(board.to_pretty_string())
-            mcts.inform_action(index)
             turn = mcts_piece
         else:
             # runs MCTS for 0.2 seconds
