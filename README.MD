@@ -7,9 +7,7 @@ This project offers a Python module with an extensible implementation of MCTS (M
 
 This MCTS implemenattion can be used to find the best action for a single player or for multi-player competitive turn-based games with discrete actions.
 
-Typical examples are two-player board games such as: checkers or chess. But it also can other games such as connect-4 or tic-tac-toe.
-
-More than 2 players is also supported.
+Typical examples are two-player board games such as: checkers or chess. But it also can other games such as connect-4 or tic-tac-toe. Games with more than 2 players are also supported.
 
 ## Features
 
