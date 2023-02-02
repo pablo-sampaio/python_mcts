@@ -1,7 +1,7 @@
 """
 Monte-Carlo Tree Search implementation.
 
-This is major refactoring based on code from: https://ai-boson.github.io/mcts/
+This is major refactoring of the code available here: https://ai-boson.github.io/mcts/
 """
 
 import numpy as np
@@ -48,10 +48,11 @@ class ProblemState(abc.ABC):
 
     def get_player(self): 
         '''
-        Modify according to your game or needs. 
-        Returns some value to identify the player which is in turn (to do actions from this state). 
+        Returns some value to identify the player which is in turn (i.e. the one which will do actions from this state). 
         Returns None if it is a final state.
         Default implementation: return 0 for all non-terminal states, for single player problems.
+        Modify if you need n>1 players. 
+        The type of the return value can be freely chosen in your implementation. Tip: return a, int value from 0 to n-1. 
         '''
         if self.is_terminal():
             return None
@@ -60,35 +61,38 @@ class ProblemState(abc.ABC):
     @abc.abstractmethod
     def get_valid_actions(self): 
         '''
-        Modify according to your game or needs. 
         Constructs a list of all possible actions from current state.
         Returns a list.
+        Modify according to your problem/game. 
         '''
         pass
 
     @abc.abstractmethod
     def is_terminal(self):
         '''
-        Modify according to your game or needs. Game over condition. 
+        Game over condition. 
         Returns true or false.
+        Modify according to your problem/game.
         '''
         pass
 
     @abc.abstractmethod
     def final_result(self, player):
         '''
-        Modify according to your game or needs.
-        Can only be called in terminal state. 
-        Returns the score for any given player.
+        Returns the score for any given player. 
+        Can only be called in a terminal state. 
+        The 'player' parameter must be one of the values returned by get_player().
+        Modify according to your problem/game.
         '''
         pass
 
     @abc.abstractmethod
     def move(self, action):
         '''
-        Modify according to your game or needs. 
         Changes the state of your problem/game when the given action is applied. 
         Returns the new state after making a move.
+        The type of 'action' can be freely chosen in your implementation.
+        Modify according to your problem/game. 
         '''
         pass
 
