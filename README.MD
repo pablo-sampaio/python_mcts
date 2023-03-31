@@ -21,8 +21,8 @@ Typical examples are two-player board games such as: checkers or chess. Ot other
 To use this module: 
 1. Copy "py_mcts" folder to your project's folder.
 2. In your code, import `py_mcts`. You will use **`ProblemState`** and **`MCTS`** classes.
-3. Create a new class to represent your problem state, as a subclass of `ProblemState`. Implement these methods:
-   * get_player(self) -> in non-terminal states, returns the next player to move (use any data type to identify the players, players will be compared with`==`); in terminal states, should return `None`
+3. Define a new class to represent your problem state, as a subclass of **`ProblemState`**. Implement these methods:
+   * **`get_player(self)`** -> in non-terminal states, returns the next player to move (use any data type to identify the players, players will be compared with`==`); in terminal states, should return `None`
    * **`get_valid_actions(self)`** -> return a list or any iterable object of actions (each represented by any type you want)
    * **`is_terminal(self)`** -> returns boolean to indicate if it is a terminal state
    * **`game_result(self, player)`** -> used in terminal states, indicates the score for any given player
